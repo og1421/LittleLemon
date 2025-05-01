@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Little Lemon</string>
+    <string name="title">Little Lemon</string>
+    <string name="location">Chicago</string>
+    <string name="order">Order Take Away</string>
+    <string name="description_one">We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</string>
+    <string name="weekly_special">Weekly Special</string>
+    <string name="dish_one">Greek Salad</string>
+    <string name="dish_one_description">The famous Greek salad of crispy lettuce, peppers, olives, our Chicago..</string>
+    <string name="dish_one_price">$12.99</string>
+</resources>
