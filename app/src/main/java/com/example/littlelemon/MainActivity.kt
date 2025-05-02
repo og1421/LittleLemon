@@ -1,9 +1,13 @@
 package com.example.littlelemon
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.littlelemon.ui.theme.LittleLemonTheme
@@ -13,16 +17,25 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            LittleLemonTheme {
-                MainComponent()
-            }
+            MainComponent()
         }
     }
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainComponent() {
-    UpperPanel()
+    Scaffold (
+        topBar = {
+            TopAppBar()
+        }
+    ){
+        Column {
+            UpperPanel()
+            LowerPanel()
+        }
+    }
+
 }
 
 @Preview(showBackground = true)
