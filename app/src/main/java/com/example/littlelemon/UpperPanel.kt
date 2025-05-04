@@ -34,7 +34,7 @@ fun UpperPanel () {
         horizontalAlignment = Alignment.Start,
         modifier = Modifier
             .background(Color(0XFF495E57))
-            .padding(start = 12.dp, end = 12.dp, top = 16.dp, bottom = 16.dp)
+            .padding(start = 12.dp, end = 12.dp, top = 36.dp, bottom = 16.dp)
     ){
         Text(
             text = stringResource(R.string.title),
