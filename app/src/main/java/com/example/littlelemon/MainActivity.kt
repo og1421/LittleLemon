@@ -5,37 +5,60 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.littlelemon.ui.theme.LittleLemonTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MainComponent()
+            AppScreen()
         }
     }
 }
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MainComponent() {
+private fun AppScreen() {
     Scaffold (
         topBar = {
             TopAppBar()
         }
     ){
-        Column {
-            UpperPanel()
-            LowerPanel()
+        Box( modifier = Modifier
+            .fillMaxSize()
+            .padding(it)) {
+            MyNavigation()
         }
     }
 
 }
+
+@Composable
+fun MyNavigation (){
+    val navController = rememberNavController()
+
+    NavHost(
+        navController = navController,
+        startDestination = Home.route
+    ){
+        composable(Home.route) {
+            HomeScreen(navController = navController)
+        }
+    }
+}
+
 
 //@Composable
 //fun MenuContent(paddingValues: PaddingValues) {
@@ -125,6 +148,6 @@ fun MainComponent() {
 @Composable
 fun LittleLemonPreview() {
     LittleLemonTheme {
-        MainComponent()
+        AppScreen()
     }
 }
