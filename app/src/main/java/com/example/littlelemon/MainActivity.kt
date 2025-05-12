@@ -56,6 +56,9 @@ fun MyNavigation (){
         composable(Home.route) {
             HomeScreen(navController = navController)
         }
+        composable (Menu.route){
+            MenuListScreen()
+        }
     }
 }
 
