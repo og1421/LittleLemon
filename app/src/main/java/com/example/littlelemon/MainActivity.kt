@@ -39,20 +39,21 @@ class MainActivity : ComponentActivity() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 private fun AppScreen() {
-    Scaffold (
-        topBar = {
-            TopAppBar()
-        },
-        bottomBar = {
-            MyBottonNavigation(navController = rememberNavController())
-        }
-     ){
-        Box( modifier = Modifier
-            .fillMaxSize()
-            .padding(it)) {
-            MyNavigation()
-        }
-    }
+//    Scaffold (
+//        topBar = {
+//            TopAppBar()
+//        },
+//        bottomBar = {
+//            MyBottonNavigation(navController = rememberNavController())
+//        }
+//     ){
+//        Box( modifier = Modifier
+//            .fillMaxSize()
+//            .padding(it)) {
+//            MyNavigation()
+//        }
+//    }
+    ScrollableGaleryScreen()
 
 }
 
