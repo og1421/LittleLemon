@@ -26,13 +26,31 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Divider
+import java.nio.file.WatchEvent
 
 
 @Composable
 fun MenuListScreen() {
     Column {
-        UpperPanel()
-        PainelInferior()
+//        UpperPanel()
+//        PainelInferior()
+
+        LazyRow {
+            items(Categories) { category ->
+                MenuCategory(category)
+            }
+        }
+        HorizontalDivider(
+            modifier = Modifier.padding(8.dp),
+            color = Color.Gray,
+            thickness = 1.dp
+        )
+        LazyColumn {
+            items(Dishes) { Dish->
+                MenuDish(Dish)
+            }
+        }
     }
 }
 
