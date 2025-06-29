@@ -53,6 +53,7 @@ private fun AppScreen() {
             MyNavigation()
         }
     }
+//    LazyGrid()
 }
 
 @Composable

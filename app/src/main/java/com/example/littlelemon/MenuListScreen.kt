@@ -26,12 +26,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Divider
-import java.nio.file.WatchEvent
 
 
 @Composable
-fun MenuListScreen() {
+fun  MenuListScreen() {
     Column {
 //        UpperPanel()
 //        PainelInferior()
@@ -135,7 +133,7 @@ fun MenuCategory(category: String){
 }
 
 @Composable
-fun MenuDish(Dish: Dish) {
+fun MenuDish(dish: Dish) {
     // to be defined
     Card {
         Row (
@@ -145,27 +143,27 @@ fun MenuDish(Dish: Dish) {
         ){
             Column {
                 Text(
-                    text = Dish.name,
+                    text = dish.name,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
                 )
 
                 Text(
-                    text = Dish.description,
+                    text = dish.description,
                     Modifier
                         .padding(top = 5.dp, bottom = 5.dp)
                         .fillMaxWidth(.75f),
                 )
 
                 Text(
-                    text = Dish.price,
+                    text = dish.price,
                     color = Color.Gray,
                     fontWeight = FontWeight.Bold
                 )
             }
 
             Image(
-                painter = painterResource(id = Dish.image),
+                painter = painterResource(id = dish.image),
                 contentDescription = "Greek Salad Image",
                 Modifier.clip(RoundedCornerShape(20.dp))
             )

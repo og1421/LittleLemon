@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
@@ -39,6 +41,15 @@ fun ScrollableGaleryScreen() {
 }
 
 @Composable
+fun LazyGrid() {
+    LazyVerticalGrid(columns = GridCells.Adaptive(140.dp)) {
+        items (1000) {
+            GalleryCell()
+        }
+    }
+}
+
+@Composable
 fun GalleryCell() {
     Card (
         modifier = Modifier.padding(8.dp)
@@ -46,6 +57,7 @@ fun GalleryCell() {
         Box(
             modifier = Modifier
                 .requiredSize(180.dp, 180.dp)
+                .background(Color.White)
                 .padding(8.dp)
         ) {
             Image(
