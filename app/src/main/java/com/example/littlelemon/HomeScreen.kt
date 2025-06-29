@@ -20,6 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import com.google.gson.Gson
+import android.net.Uri
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -95,8 +97,13 @@ fun HomeScreen(navController: NavController) {
             WeeklySpecialCard()
         }
 
+        val gson = Gson()
+
         items(Dishes) { dish ->
-            MenuDish(dish)
+            MenuDish(dish = dish, onClick = {
+                val dishJson = Uri.encode(gson.toJson(dish))
+                navController.navigate("DishDetails/$dishJson")
+            })
         }
     }
 }

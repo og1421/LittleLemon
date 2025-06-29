@@ -2,6 +2,7 @@ package com.example.littlelemon
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -44,11 +45,11 @@ fun  MenuListScreen() {
             color = Color.Gray,
             thickness = 1.dp
         )
-        LazyColumn {
-            items(Dishes) { Dish->
-                MenuDish(Dish)
-            }
-        }
+//        LazyColumn {
+//            items(Dishes) { Dish->
+//                MenuDish(Dish)
+//            }
+//        }
     }
 }
 
@@ -93,11 +94,11 @@ private fun PainelInferior() {
             thickness = 1.dp,
             color = Color.Gray
         )
-        LazyColumn {
-            items(Dishes) { Dish ->
-                MenuDish(Dish)
-            }
-        }
+//        LazyColumn {
+//            items(Dishes) { Dish ->
+//                MenuDish(Dish)
+//            }
+//        }
     }
 }
 
@@ -133,13 +134,14 @@ fun MenuCategory(category: String){
 }
 
 @Composable
-fun MenuDish(dish: Dish) {
+fun MenuDish(dish: Dish, onClick: (Dish) -> Unit) {
     // to be defined
     Card {
         Row (
             Modifier
                 .fillMaxWidth()
                 .padding(8.dp)
+                .clickable{ onClick(dish)}
         ){
             Column {
                 Text(
@@ -169,7 +171,7 @@ fun MenuDish(dish: Dish) {
             )
         }
     }
-    HorizontalDivider( modifier = Modifier.padding(start = 8.dp, end = 8.dp), color = Color.LightGray, thickness = 1.dp)
+    HorizontalDivider( modifier = Modifier.padding(start = 8.dp, end = 8.dp), color = Color(0xfff4ce14), thickness = 1.dp)
 }
 
 val Categories = listOf(

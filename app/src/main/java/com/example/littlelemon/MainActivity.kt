@@ -20,10 +20,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.littlelemon.ui.theme.LittleLemonTheme
+import com.google.gson.Gson
 
 
 class MainActivity : ComponentActivity() {
@@ -69,6 +72,14 @@ fun MyNavigation (){
         }
         composable (Menu.route){
             MenuListScreen()
+        }
+        composable(
+            route = "DishDetails/{dish}",
+            arguments = listOf(navArgument("dish") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val dishJson = backStackEntry.arguments?.getString("dish")
+            val dish = Gson().fromJson(dishJson, Dish::class.java)
+            DishDetailsScreen(dish)
         }
     }
 }
